@@ -1,0 +1,124 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+    <link rel="stylesheet" href="utmCodeGenerator.css">
+    <script>var source = "";
+    function choose1(choice){
+        source = choice;
+        submit();
+    }
+    var medium = "";
+    function choose2(choice){
+      medium = choice;
+      submit();
+
+    }
+    var content = "";
+    function choose3(choice){
+      content = choice;
+      submit();
+
+    }
+    var campaign = "";
+    function choose4(choice){
+      campaign = choice;
+      submit();
+
+    }
+    var baseurl = "https://tokencs.ca/";
+    function getbaseurl() {
+      baseurl = document.getElementById("userInput").value;
+      submit();
+  }
+  function submit(click){
+      document.getElementById("result").innerHTML = baseurl + "?" + source + medium + content + campaign;
+  }
+    </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+  function copyToClipboard(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
+  </script>
+
+  </head>
+
+  <body>
+    <h1>UTM Code Generator
+    </h1>
+    <div id="utm">
+      <p style="font-size: 1.25em;">Paste your original URL here and submit: </p>
+      <p>(Default is https://tokencs.ca/)</p>
+      <form id="form" onsubmit="return false;">
+          <input type="text" id="userInput" />
+          <input type="submit" onclick="getbaseurl();" />
+      </form>
+
+
+      <p style="font-size: 1.25em;">Your new URL:</p>
+
+
+      <div id="result" style="font-size: 2em;"></div>
+      <br>
+      <button id="btn1" onclick="copyToClipboard('#result')">Copy To Clipboard</button>
+      <input type="button" onclick="window.open('https://bitly.com/');"; value="Go to Bitly" />
+
+      <p style="font-size: 1.25em;">Source: Where is this link being posted?</p>
+        <button  onClick="choose1('utm_source=facebook')">Facebook</button>
+        <button  onClick="choose1('utm_source=twitter')">Twitter</button>
+        <button  onClick="choose1('utm_source=instagram')">Instagram</button>
+        <button  onClick="choose1('utm_source=GooglePlus')">Google+</button>
+        <button  onClick="choose1('utm_source=LinkedIn')">LinkedIn</button>
+        <button  onClick="choose1('utm_source=Pinterest')">Pinterest</button>
+        <button  onClick="choose1('utm_source=Other')">Other</button>
+        <br>
+        <br>
+        <p style="font-size: 1.25em;">Medium: What type of media is this link being shared on?</p>
+        <button onClick="choose2('&amp;utm_medium=social')">Social</button>
+        <button onClick="choose2('&amp;utm_medium=email')">Email</button>
+        <button onClick="choose2('&amp;utm_medium=google-ad')">Google-ad</button>
+        <button onClick="choose2('&amp;utm_medium=facebook-ad')">Facebook-ad</button>
+        <button onClick="choose2('&amp;utm_medium=instagram-ad')">Instagram-ad</button>
+        <button onClick="choose2('&amp;utm_medium=misc-ad')">Misc-ad</button>
+        <button onClick="choose2('&amp;utm_medium=other')">Other</button>
+        <br>
+        <br>
+        <p style="font-size: 1.25em;">Content: What type of content is shared alongside this link?</p>
+        <button onClick="choose3('&amp;utm_content=blog')">Blog</button>
+        <button onClick="choose3('&amp;utm_content=image')">Image</button>
+        <button onClick="choose3('&amp;utm_content=video')">Video</button>
+        <button onClick="choose3('&amp;utm_content=wedding-video')">Wedding Video</button>
+        <button onClick="choose3('&amp;utm_content=wedding-image')">Wedding Image</button>
+        <button onClick="choose3('&amp;utm_content=tweet')">Tweet</button>
+        <button onClick="choose3('&amp;utm_content=ig-post')">IG-Post</button>
+        <button onClick="choose3('&amp;utm_content=fb-post')">FB-Post</button>
+        <button onClick="choose3('&amp;utm_content=link')">Link</button>
+        <button onClick="choose3('&amp;utm_content=other')">Other</button>
+        <br>
+        <br>
+        <p style="font-size: 1.25em;">Campaign: Is this link part of a specific campaign?</p>
+        <button onclick="choose4('&amp;utm_campaign=2016')">2016</button>
+        <button onclick="choose4('&amp;utm_campaign=2017')">2017</button>
+        <button onclick="choose4('&amp;utm_campaign=september')">September</button>
+        <button onclick="choose4('&amp;utm_campaign=october')">October</button>
+        <button onclick="choose4('&amp;utm_campaign=november')">November</button>
+        <button onclick="choose4('&amp;utm_campaign=december')">December</button>
+        <button onclick="choose4('&amp;utm_campaign=winter')">Winter</button>
+        <button onclick="choose4('&amp;utm_campaign=spring')">Spring</button>
+        <button onclick="choose4('&amp;utm_campaign=summer')">Summer</button>
+        <button onclick="choose4('&amp;utm_campaign=fall')">Fall</button>
+        <button onclick="choose4('&amp;utm_campaign=other')">Other</button>
+        <br>
+        <br>
+
+    </div>
+  </body>
+</html>
